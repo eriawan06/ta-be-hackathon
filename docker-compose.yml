@@ -1,0 +1,62 @@
+version: "3"
+
+services:
+  database:
+    container_name: hackathon-mysql
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_USER: ${MYSQL_USERNAME}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DBNAME}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      TZ: ${MYSQL_TZ}
+    ports:
+      - 21062:3306
+    volumes:
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/setup.sql
+      - ./mysql-data:/var/lib/mysql
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+    networks:
+      - api
+  adminer:
+    image: adminer
+    container_name: hackathon_adminer
+    restart: always
+    ports:
+      - ${ADMINER_PORT}:8080
+    links:
+      - database
+    networks:
+      - api
+    tty: true
+    volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+  app:
+    env_file:
+      - .env
+    container_name: hackathon_api
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - ${PORT}:3000
+    depends_on:
+      - database
+    working_dir: /go/src/app
+    volumes:
+      - .:/go/src/app
+    command: ${API_COMMAND}
+    networks:
+      - api
+    links:
+      - database
+volumes:
+  data:
+    driver: local
+networks:
+  api:
+    driver: bridge

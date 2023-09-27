@@ -1,0 +1,3099 @@
+basePath: /api/v1
+definitions:
+  dto.CreateCompanyRequest:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      sponsorship:
+        type: string
+      valid_end:
+        type: string
+    required:
+    - email
+    - name
+    - password
+    - sponsorship
+    - valid_end
+    type: object
+  dto.CreateEventJudgeRequest:
+    properties:
+      event_id:
+        type: integer
+      judge_id:
+        type: integer
+    required:
+    - event_id
+    - judge_id
+    type: object
+  dto.CreateEventMentorRequest:
+    properties:
+      event_id:
+        type: integer
+      mentor_id:
+        type: integer
+    type: object
+  dto.CreateEventRequest:
+    properties:
+      description:
+        type: string
+      end_date:
+        type: string
+      name:
+        type: string
+      payment_due_date:
+        type: string
+      reg_fee:
+        type: integer
+      start_date:
+        type: string
+    required:
+    - description
+    - end_date
+    - name
+    - payment_due_date
+    - reg_fee
+    - start_date
+    type: object
+  dto.CreateEventTimelineRequest:
+    properties:
+      end_date:
+        type: string
+      event_id:
+        type: integer
+      note:
+        type: string
+      start_date:
+        type: string
+    required:
+    - end_date
+    - event_id
+    - note
+    - start_date
+    type: object
+  dto.CreateJudgeRequest:
+    properties:
+      avatar:
+        type: string
+      email:
+        type: string
+      institution:
+        type: string
+      name:
+        type: string
+      occupation:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - name
+    - password
+    type: object
+  dto.CreateMentorRequest:
+    properties:
+      avatar:
+        type: string
+      email:
+        type: string
+      institution:
+        type: string
+      name:
+        type: string
+      occupation:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - name
+    - password
+    type: object
+  dto.CreatePaymentMethodRequest:
+    properties:
+      account_name:
+        type: string
+      account_number:
+        type: string
+      bank_code:
+        type: string
+      name:
+        type: string
+    required:
+    - account_name
+    - account_number
+    - bank_code
+    - name
+    type: object
+  dto.CreatePaymentRequest:
+    properties:
+      account_name:
+        type: string
+      account_number:
+        type: string
+      bank_name:
+        type: string
+      evidence:
+        type: string
+      invoice_id:
+        type: integer
+      payment_method_id:
+        type: integer
+    type: object
+  dto.CreateProjectRequest:
+    properties:
+      description:
+        type: string
+      event_id:
+        type: integer
+      image:
+        type: string
+      name:
+        type: string
+      team_id:
+        type: integer
+      video:
+        type: string
+    required:
+    - event_id
+    - name
+    - team_id
+    type: object
+  dto.CreateTeamInvitationRequest:
+    properties:
+      from_participant:
+        type: integer
+      note:
+        type: string
+      team_code:
+        type: string
+      to_participant:
+        type: integer
+    required:
+    - from_participant
+    - team_code
+    - to_participant
+    type: object
+  dto.CreateTeamRequest:
+    properties:
+      event_id:
+        type: integer
+      members:
+        items:
+          type: integer
+        type: array
+    type: object
+  dto.CreateUserRequest:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      role_id:
+        type: integer
+    required:
+    - email
+    - name
+    - password
+    - role_id
+    type: object
+  dto.EventJudgeResponse:
+    properties:
+      event_id:
+        type: integer
+      id:
+        type: integer
+      judge_id:
+        type: integer
+      judge_name:
+        type: string
+      judge_occupation:
+        type: string
+    type: object
+  dto.EventMentorResponse:
+    properties:
+      event_id:
+        type: integer
+      id:
+        type: integer
+      mentor_id:
+        type: integer
+      mentor_name:
+        type: string
+      mentor_occupation:
+        type: string
+    type: object
+  dto.EventResponse:
+    properties:
+      description:
+        type: string
+      end_date:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      payment_due_date:
+        type: string
+      reg_fee:
+        type: integer
+      start_date:
+        type: string
+      status:
+        type: string
+    type: object
+  dto.EventTimelineResponse:
+    properties:
+      end_date:
+        type: string
+      event_id:
+        type: integer
+      id:
+        type: integer
+      note:
+        type: string
+      start_date:
+        type: string
+    type: object
+  dto.ForgotPasswordRequest:
+    properties:
+      new_password:
+        type: string
+      verification_code:
+        type: string
+    required:
+    - new_password
+    - verification_code
+    type: object
+  dto.InvoiceFullResponse:
+    properties:
+      amount:
+        type: integer
+      approved_at:
+        type: string
+      approved_by:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      due_date:
+        type: string
+      event_id:
+        type: integer
+      event_name:
+        type: string
+      id:
+        type: integer
+      invoice_number:
+        type: string
+      paid_amount:
+        type: integer
+      participant_email:
+        type: string
+      participant_id:
+        type: integer
+      participant_name:
+        type: string
+      participant_phone:
+        type: string
+      status:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  dto.JudgeResponse:
+    properties:
+      avatar:
+        type: string
+      email:
+        type: string
+      id:
+        type: integer
+      institution:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+      occupation:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  dto.LoginByGoogleRequest:
+    properties:
+      id_token:
+        type: string
+    required:
+    - id_token
+    type: object
+  dto.LoginRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  dto.MentorResponse:
+    properties:
+      avatar:
+        type: string
+      email:
+        type: string
+      id:
+        type: integer
+      institution:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+      occupation:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  dto.ParticipantProfileResponse:
+    properties:
+      avatar:
+        type: string
+      bio:
+        type: string
+      birthdate:
+        type: string
+      email:
+        type: string
+      full_name:
+        type: string
+      github:
+        type: string
+      has_team:
+        type: boolean
+      id:
+        type: integer
+      institution:
+        type: string
+      is_active:
+        type: boolean
+      linkedin:
+        type: string
+      location:
+        type: string
+      occupation:
+        type: string
+      payment_status:
+        type: string
+      phone_number:
+        type: string
+      resume:
+        type: string
+      skills:
+        type: string
+      speciality_id:
+        type: integer
+      speciality_name:
+        type: string
+      status_team:
+        type: string
+      username:
+        type: string
+    type: object
+  dto.PaymentDetailResponse:
+    properties:
+      account_name:
+        type: string
+      account_number:
+        type: string
+      amount:
+        type: integer
+      bank_name:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      event_id:
+        type: integer
+      event_name:
+        type: string
+      evidence:
+        type: string
+      id:
+        type: integer
+      invoice_id:
+        type: integer
+      invoice_number:
+        type: string
+      note:
+        type: string
+      participant_email:
+        type: string
+      participant_id:
+        type: integer
+      participant_name:
+        type: string
+      participant_phone:
+        type: string
+      payment_method:
+        type: string
+      payment_method_id:
+        type: integer
+      proceed_at:
+        type: string
+      proceed_by:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  dto.PaymentLiteResponse:
+    properties:
+      account_name:
+        type: string
+      account_number:
+        type: string
+      amount:
+        type: integer
+      bank_name:
+        type: string
+      event_id:
+        type: integer
+      evidence:
+        type: string
+      id:
+        type: integer
+      invoice_number:
+        type: string
+      participant_name:
+        type: string
+      participant_phone:
+        type: string
+      proceed_at:
+        type: string
+    type: object
+  dto.PaymentMethodDetailResponse:
+    properties:
+      account_name:
+        type: string
+      account_number:
+        type: string
+      bank_code:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      deleted_at:
+        type: string
+      deleted_by:
+        type: string
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      name:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  dto.PaymentMethodResponse:
+    properties:
+      account_name:
+        type: string
+      account_number:
+        type: string
+      bank_code:
+        type: string
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      name:
+        type: string
+    type: object
+  dto.RegisterByGoogleRequest:
+    properties:
+      full_name:
+        type: string
+      id_token:
+        type: string
+      phone_number:
+        type: string
+    required:
+    - full_name
+    - id_token
+    - phone_number
+    type: object
+  dto.RegisterRequest:
+    properties:
+      confirm_password:
+        type: string
+      email:
+        type: string
+      full_name:
+        type: string
+      password:
+        type: string
+      phone_number:
+        type: string
+    required:
+    - confirm_password
+    - email
+    - full_name
+    - password
+    - phone_number
+    type: object
+  dto.ResetPasswordRequest:
+    properties:
+      confirm_password:
+        type: string
+      email:
+        type: string
+      new_password:
+        type: string
+      old_password:
+        type: string
+    required:
+    - confirm_password
+    - email
+    - new_password
+    - old_password
+    type: object
+  dto.SendVerificationCodeRequest:
+    properties:
+      email:
+        type: string
+      type:
+        type: string
+    required:
+    - email
+    - type
+    type: object
+  dto.TeamDetailResponse:
+    properties:
+      code:
+        type: string
+      created_at:
+        type: string
+      event_id:
+        type: integer
+      event_name:
+        type: string
+      id:
+        type: integer
+      leader_id:
+        type: integer
+      leader_name:
+        type: string
+      members:
+        items:
+          $ref: '#/definitions/dto.TeamMemberResponse'
+        type: array
+    type: object
+  dto.TeamLiteResponse:
+    properties:
+      code:
+        type: string
+      created_at:
+        type: string
+      event_id:
+        type: integer
+      event_name:
+        type: string
+      id:
+        type: integer
+      leader_id:
+        type: integer
+      leader_name:
+        type: string
+    type: object
+  dto.TeamMemberResponse:
+    properties:
+      id:
+        type: integer
+      joined_at:
+        type: string
+      participant_email:
+        type: string
+      participant_id:
+        type: integer
+      participant_name:
+        type: string
+      role:
+        type: string
+      team_id:
+        type: integer
+    type: object
+  dto.UpdateEventRequest:
+    properties:
+      description:
+        type: string
+      end_date:
+        type: string
+      name:
+        type: string
+      payment_due_date:
+        type: string
+      reg_fee:
+        type: integer
+      start_date:
+        type: string
+    required:
+    - description
+    - end_date
+    - name
+    - payment_due_date
+    - reg_fee
+    - start_date
+    type: object
+  dto.UpdateEventTimelineRequest:
+    properties:
+      end_date:
+        type: string
+      note:
+        type: string
+      start_date:
+        type: string
+    required:
+    - end_date
+    - note
+    - start_date
+    type: object
+  dto.UpdateJudgeRequest:
+    properties:
+      avatar:
+        type: string
+      email:
+        type: string
+      institution:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+      occupation:
+        type: string
+    required:
+    - email
+    - name
+    type: object
+  dto.UpdateMentorRequest:
+    properties:
+      avatar:
+        type: string
+      email:
+        type: string
+      institution:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+      occupation:
+        type: string
+    required:
+    - email
+    - name
+    type: object
+  dto.UpdateParticipantAccountRequest:
+    properties:
+      email:
+        type: string
+      username:
+        type: string
+    required:
+    - email
+    - username
+    type: object
+  dto.UpdateParticipantPreferenceRequest:
+    properties:
+      skills:
+        type: string
+      speciality_id:
+        type: integer
+      status_team:
+        type: string
+    type: object
+  dto.UpdateParticipantProfileRequest:
+    properties:
+      avatar:
+        type: string
+      bio:
+        type: string
+      birthdate:
+        type: string
+      full_name:
+        type: string
+      github:
+        type: string
+      linkedin:
+        type: string
+      location:
+        type: string
+      occupation:
+        type: string
+      resume:
+        type: string
+    required:
+    - full_name
+    type: object
+  dto.UpdatePaymentMethodRequest:
+    properties:
+      account_name:
+        type: string
+      account_number:
+        type: string
+      bank_code:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+    required:
+    - account_name
+    - account_number
+    - bank_code
+    - name
+    type: object
+  dto.UpdatePaymentRequest:
+    properties:
+      amount:
+        type: integer
+      note:
+        type: string
+    type: object
+  dto.UpdateProjectRequest:
+    properties:
+      description:
+        type: string
+      image:
+        type: string
+      name:
+        type: string
+      video:
+        type: string
+    required:
+    - name
+    type: object
+  dto.UpdateUserRequest:
+    properties:
+      full_name:
+        type: string
+      institution:
+        type: string
+      phone_number:
+        minLength: 8
+        type: string
+    required:
+    - full_name
+    - phone_number
+    type: object
+  dto.UserProfileResponse:
+    properties:
+      avatar:
+        type: string
+      email:
+        type: string
+      full_name:
+        type: string
+      institution:
+        type: string
+      phone_number:
+        type: string
+      role_id:
+        type: integer
+      role_name:
+        type: string
+    type: object
+  dto.ValidateVerificationCodeRequest:
+    properties:
+      verification_code:
+        type: string
+    required:
+    - verification_code
+    type: object
+  dto.VerifyEmailRequest:
+    properties:
+      verification_code:
+        description: Email string `json:"email" binding:"required"`
+        type: string
+    required:
+    - verification_code
+    type: object
+  entity.ProjectDetail:
+    properties:
+      description:
+        type: string
+      event_id:
+        type: integer
+      id:
+        type: integer
+      image:
+        type: string
+      name:
+        type: string
+      team_id:
+        type: integer
+      video:
+        type: string
+    type: object
+  entity.ProjectLite:
+    properties:
+      description:
+        type: string
+      event_id:
+        type: integer
+      id:
+        type: integer
+      image:
+        type: string
+      name:
+        type: string
+      team_id:
+        type: integer
+      video:
+        type: string
+    type: object
+  entity.Speciality:
+    properties:
+      created_at:
+        type: string
+      created_by:
+        type: string
+      deletedAt:
+        type: string
+      deletedBy:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      updated_at:
+        type: string
+      updated_by:
+        type: string
+    type: object
+  src.AuthSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/src.Token'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.BaseFailure:
+    properties:
+      code:
+        example: 400
+        type: integer
+      error:
+        $ref: '#/definitions/src.Error'
+      message:
+        example: Failure
+        type: string
+      success:
+        example: false
+        type: boolean
+    type: object
+  src.BaseSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.Error:
+    properties:
+      error:
+        items: {}
+        type: array
+    type: object
+  src.GetEventJudgeSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.EventJudgeResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetEventMentorSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.EventMentorResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetEventSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.EventResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetEventTimelineSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.EventTimelineResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetInvoiceFullSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.InvoiceFullResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetJudgeSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.JudgeResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetListEventJudgeSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/dto.EventJudgeResponse'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetListEventMentorSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/dto.EventMentorResponse'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetListEventTimelineSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/dto.EventTimelineResponse'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetListEventsSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/dto.EventResponse'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetListInvoicesFullSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/dto.InvoiceFullResponse'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetListJudgeSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/dto.JudgeResponse'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetListMentorSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/dto.MentorResponse'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetListPaymentMethodsSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/dto.PaymentMethodResponse'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetListPaymentSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/dto.PaymentLiteResponse'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetListProjectSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/entity.ProjectLite'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetListTeamSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/dto.TeamLiteResponse'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetMentorSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.MentorResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetParticipantProfileSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.ParticipantProfileResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetPaymentDetailSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.PaymentDetailResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetPaymentMethodDetailSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.PaymentMethodDetailResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetProjectDetailSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/entity.ProjectDetail'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetTeamDetailSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.TeamDetailResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.GetUserProfileSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        $ref: '#/definitions/dto.UserProfileResponse'
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.ListSpecialitySuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/entity.Speciality'
+        type: array
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.Token:
+    properties:
+      token:
+        type: string
+    type: object
+  src.UploadFileSuccess:
+    properties:
+      code:
+        example: 200
+        type: integer
+      file_path:
+        type: string
+      file_url:
+        type: string
+      message:
+        example: Success
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  src.UploadRequest:
+    properties:
+      file:
+        type: string
+      overwrite:
+        type: boolean
+      path:
+        type: string
+      previous_file:
+        type: string
+    required:
+    - file
+    - path
+    type: object
+host: localhost:3000
+info:
+  contact:
+    email: zeptian15@gmail.com
+    name: API Support
+    url: https://sagaratechnology.com/
+  description: API for Sagara Hackathon App
+  termsOfService: http://swagger.io/terms/
+  title: Sagara Hackathon API
+  version: "1.0"
+paths:
+  /auth/forgot-password:
+    post:
+      consumes:
+      - application/json
+      description: Forgot Password
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ForgotPasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Forgot Password
+      tags:
+      - Authentication
+  /auth/get-verification-code:
+    post:
+      consumes:
+      - application/json
+      description: Get Verification Code
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.SendVerificationCodeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Get Verification Code
+      tags:
+      - Authentication
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Login User Regular
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.AuthSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Login Regular
+      tags:
+      - Authentication
+  /auth/login/admin:
+    post:
+      consumes:
+      - application/json
+      description: Login For Superadmin, Admin, HR
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.AuthSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Login Admin
+      tags:
+      - Authentication
+  /auth/login/google:
+    post:
+      consumes:
+      - application/json
+      description: Login User By Google Account
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.LoginByGoogleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.AuthSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Login By Google
+      tags:
+      - Authentication
+  /auth/register:
+    post:
+      consumes:
+      - application/json
+      description: Register User Regular
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RegisterRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Register Regular
+      tags:
+      - Authentication
+  /auth/register/google:
+    post:
+      consumes:
+      - application/json
+      description: Register User By Google Account
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RegisterByGoogleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.AuthSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Register By Google
+      tags:
+      - Authentication
+  /auth/reset-password:
+    post:
+      consumes:
+      - application/json
+      description: Reset/Change Password [DEPRECATED]
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ResetPasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Reset/Change Password [DEPRECATED]
+      tags:
+      - Authentication
+  /auth/validate-verification-code:
+    post:
+      consumes:
+      - application/json
+      description: Validate Verification Code
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ValidateVerificationCodeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Validate Verification Code
+      tags:
+      - Authentication
+  /auth/verify-email:
+    post:
+      consumes:
+      - application/json
+      description: Email Verification
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.VerifyEmailRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Email Verification
+      tags:
+      - Authentication
+  /events:
+    get:
+      description: Get All Events
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListEventsSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Events
+      tags:
+      - Events
+    post:
+      description: Create Event
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateEventRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Create Event
+      tags:
+      - Events
+  /events/{id}:
+    delete:
+      description: Delete Event
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete Event
+      tags:
+      - Events
+    get:
+      description: Get Event By Event Id
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetEventSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Event By Event Id
+      tags:
+      - Events
+    put:
+      description: Update Event
+      parameters:
+      - description: Event ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateEventRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Update Event
+      tags:
+      - Events
+  /events/judges:
+    get:
+      description: Get All Event Judge
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListEventJudgeSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Event Judge
+      tags:
+      - Events
+    post:
+      description: Create Event Judge
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateEventJudgeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Create Event Judge
+      tags:
+      - Events
+  /events/judges/{id}:
+    delete:
+      description: Delete Event Judge
+      parameters:
+      - description: Event Judge ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete Event Judge
+      tags:
+      - Events
+    get:
+      description: Get One Event Judge By Id
+      parameters:
+      - description: Event Judge ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetEventJudgeSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get One Event Judge By Id
+      tags:
+      - Events
+  /events/latest:
+    get:
+      description: Get Latest Event
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetEventSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Latest Event
+      tags:
+      - Events
+  /events/mentors:
+    get:
+      description: Get All Event Mentor
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListEventMentorSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Event Mentor
+      tags:
+      - Events
+    post:
+      description: Create Event Mentor
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateEventMentorRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Create Event Mentor
+      tags:
+      - Events
+  /events/mentors/{id}:
+    delete:
+      description: Delete Event Mentor
+      parameters:
+      - description: Event Mentor ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete Event Mentor
+      tags:
+      - Events
+    get:
+      description: Get One Event Mentor By Id
+      parameters:
+      - description: Event Mentor ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetEventMentorSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get One Event Mentor By Id
+      tags:
+      - Events
+  /events/timelines:
+    get:
+      description: Get All Event Timeline
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListEventTimelineSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Event Timeline
+      tags:
+      - Events
+    post:
+      description: Create Event Timeline
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateEventTimelineRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Create Event Timeline
+      tags:
+      - Events
+  /events/timelines/{id}:
+    delete:
+      description: Delete Event Timeline
+      parameters:
+      - description: Event Timeline ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete Event Timeline
+      tags:
+      - Events
+    get:
+      description: Get One Event Timeline By Id
+      parameters:
+      - description: Event Timeline ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetEventTimelineSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get One Event Timeline By Id
+      tags:
+      - Events
+    put:
+      description: Update Event Timeline
+      parameters:
+      - description: Event Timeline ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateEventTimelineRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Update Event Timeline
+      tags:
+      - Events
+  /home:
+    get:
+      description: Get Home Data
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetEventSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Get Home Data
+      tags:
+      - Home
+  /invoices:
+    get:
+      description: Get All Invoices
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListInvoicesFullSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Invoices
+      tags:
+      - Payments
+  /invoices/{id}:
+    get:
+      description: Get Invoice
+      parameters:
+      - description: Invoice Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetInvoiceFullSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Invoice
+      tags:
+      - Payments
+  /invoices/{id}/payments:
+    get:
+      description: Get Payments By Invoice Id
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListPaymentSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Payments By Invoice Id
+      tags:
+      - Payments
+  /payment-methods:
+    get:
+      description: Get All Payment Methods
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListPaymentMethodsSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Payment Methods
+      tags:
+      - Payments
+    post:
+      description: Create New Payment Method
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreatePaymentMethodRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Create New Payment Method
+      tags:
+      - Payments
+  /payment-methods/{id}:
+    get:
+      description: Get Detail Payment Method
+      parameters:
+      - description: Payment Method Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetPaymentMethodDetailSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Detail Payment Method
+      tags:
+      - Payments
+    put:
+      description: Delete Delete Payment Method By Id
+      parameters:
+      - description: Payment Method Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete Delete Payment Method By Id
+      tags:
+      - Payments
+  /payment-methods/active:
+    get:
+      description: Get All Active Payment Methods
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListPaymentMethodsSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Active Payment Methods
+      tags:
+      - Payments
+  /payments:
+    get:
+      description: Get All Payment. Admin Only
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListPaymentSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Payment
+      tags:
+      - Payments
+    post:
+      description: Save New Payment
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreatePaymentRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Save New Payment
+      tags:
+      - Payments
+  /payments/{id}:
+    get:
+      description: Get Detail Payment
+      parameters:
+      - description: Payment Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetPaymentDetailSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Detail Payment
+      tags:
+      - Payments
+    put:
+      description: Update/Process Payment. Admin Only
+      parameters:
+      - description: Payment Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdatePaymentRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Update/Process Payment
+      tags:
+      - Payments
+  /projects:
+    get:
+      description: Get All Project. Admin Only
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListProjectSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Project
+      tags:
+      - Projects
+    post:
+      description: Save New Project
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateProjectRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Save New Project
+      tags:
+      - Projects
+  /projects/{id}:
+    get:
+      description: Get Detail Project
+      parameters:
+      - description: Project Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetProjectDetailSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Detail Project
+      tags:
+      - Projects
+    put:
+      description: Update  Project.
+      parameters:
+      - description: Project Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateProjectRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Update Project
+      tags:
+      - Projects
+  /specialities:
+    get:
+      description: Get List Speciality for User Update
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.ListSpecialitySuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      summary: Get List Speciality
+      tags:
+      - References
+  /teams:
+    get:
+      description: Get All Teams
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListTeamSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Teams
+      tags:
+      - Teams
+    post:
+      description: Create New Team
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateTeamRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Create New Team
+      tags:
+      - Teams
+  /teams/{id}:
+    delete:
+      description: Delete Team By Id
+      parameters:
+      - description: Team Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete Team By Id
+      tags:
+      - Teams
+    get:
+      description: Get Detail Team
+      parameters:
+      - description: Team Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetTeamDetailSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Detail Team
+      tags:
+      - Teams
+  /teams/invitation:
+    post:
+      description: Create New Invitation
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateTeamInvitationRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Create New Invitation
+      tags:
+      - Teams
+  /upload:
+    post:
+      consumes:
+      - multipart/form-data
+      description: |-
+        supported format : ".png", ".jpg", ".jpeg", ".pdf"
+        list path : "avatars/participants", "avatars/mentors", "avatars/judges", "avatars/admin", "cv", "payment-evidence"
+        Field overwrite is used for updating file. Set overwrite to true and fill previous_file when you want to update file
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/src.UploadRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.UploadFileSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Upload File
+      tags:
+      - General
+  /users:
+    post:
+      description: Create User Except Participant, Mentor, Company, Judges
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Create User
+      tags:
+      - User
+    put:
+      description: Update User
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Update User
+      tags:
+      - User
+  /users/company:
+    post:
+      description: Create User Company
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateCompanyRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Create Compay
+      tags:
+      - User
+  /users/judges:
+    get:
+      description: Get All Judges
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListJudgeSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Judges
+      tags:
+      - User
+    post:
+      description: Create New Judge
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateJudgeRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Create New Judge
+      tags:
+      - User
+  /users/judges/{id}:
+    delete:
+      description: Delete Judge
+      parameters:
+      - description: Judge Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete Judge
+      tags:
+      - User
+    get:
+      description: Get Judge By Id
+      parameters:
+      - description: Judge Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetJudgeSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Judge By Id
+      tags:
+      - User
+    put:
+      description: Update Judge
+      parameters:
+      - description: Judge Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateJudgeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Update Judge
+      tags:
+      - User
+  /users/mentors:
+    get:
+      description: Get All Mentors
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetListMentorSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Mentors
+      tags:
+      - User
+    post:
+      description: Create New Mentor
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateMentorRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Create New Mentor
+      tags:
+      - User
+  /users/mentors/{id}:
+    delete:
+      description: Delete Mentor
+      parameters:
+      - description: Mentor Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete Mentor
+      tags:
+      - User
+    get:
+      description: Get Mentor By Id
+      parameters:
+      - description: Mentor Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetMentorSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Mentor By Id
+      tags:
+      - User
+    put:
+      description: Update Mentor
+      parameters:
+      - description: Mentor Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateMentorRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Update Mentor
+      tags:
+      - User
+  /users/participants/{participant_id}/events/{event_id}/invoice:
+    get:
+      description: Get Participant Invoice
+      parameters:
+      - description: Participant Id
+        in: path
+        name: participant_id
+        required: true
+        type: integer
+      - description: Event Id
+        in: path
+        name: event_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetInvoiceFullSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Participant Invoice
+      tags:
+      - Participants
+  /users/participants/account:
+    put:
+      description: Update Participant Account
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateParticipantAccountRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Update Participant Account
+      tags:
+      - Participants
+  /users/participants/preference:
+    put:
+      description: Update Participant Preference
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateParticipantPreferenceRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Update Participant Preference
+      tags:
+      - Participants
+  /users/participants/profile:
+    get:
+      description: Get Participant Profile
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetParticipantProfileSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Participant Profile
+      tags:
+      - Participants
+    put:
+      description: Update Participant Profile
+      parameters:
+      - description: Body Request
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateParticipantProfileRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.BaseSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Update Participant Profile
+      tags:
+      - Participants
+  /users/profile:
+    get:
+      description: Get User Profile
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/src.GetUserProfileSuccess'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/src.BaseFailure'
+      security:
+      - ApiKeyAuth: []
+      summary: Get User Profile
+      tags:
+      - User
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

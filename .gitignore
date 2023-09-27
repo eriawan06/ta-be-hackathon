@@ -1,0 +1,8 @@
+# Ignore .env file
+.env
+oauth.json
+.vscode
+/migrations_v0
+/migrations
+/mysql-data
+sonar-project.properties
